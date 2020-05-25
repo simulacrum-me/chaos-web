@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Chaos Maps</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta property="og:image" content=""/>
+        <link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+		<link rel="icon" href="images/favicon32.png" type="image/png" sizes="32x32">
+ <link rel="icon" href="images/favicon16.png" sizes="16x16"/>
+        <script src="assets/js/libs/modernizr.custom.23122.js"></script>
+		<script src="assets/js/libs/jquery-1.10.2.min.js"></script>
+        <script src="assets/js/libs/jquery.velocity.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet"> 
+				<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+<script src="assets/js/libs/leaflet-1.5.1.js"></script>
+		<style>
+		.leaflet-container {
+    background-color: black;
+}
+		.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+.flex-item {
+  text-align: center;
+  cursor: pointer;
+}
+
+svg {
+  -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
+          filter: invert(100%);
+}
+		</style>
+
+
+    </head>
+    <body >
+<div><div id="headerContainer">CHAOS MAPS</div></div>
+
+                <div id="buttonFullscreen" title="Fullscreen Mode">
+                    <div class="icon">
+                        <svg version="1.1" id="svgIconFullscreen" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 18 16"  xml:space="preserve">
+                        <g>
+                            <path class="custom-colorable" d="M5.3871,9.95599C5.19136,9.76858,4.99176,9.85763,4.79376,10.0472l-2.86173,2.74138v-1.55466
+                                c0-0.25257-0.21387-0.45733-0.47767-0.45733H0.47767C0.21387,10.7766,0,10.98136,0,11.23393v3.37367v0.93511
+                                C0,15.79524,0.21387,16,0.47767,16h0.97668h3.5238c0.26377,0,0.47764-0.20476,0.47764-0.45729v-0.93511
+                                c0-0.25254-0.21387-0.45733-0.47764-0.45733H3.34554l2.86694-2.7451c0.198-0.18957,0.30914-0.44923,0.11342-0.63664L5.3871,9.95599
+                                z"/>
+                            <path class="custom-colorable" d="M17.52233,10.7766h-0.97672c-0.26377,0-0.47764,0.20476-0.47764,0.45733v1.55466l-2.86172-2.74138
+                                c-0.198-0.18957-0.39764-0.27862-0.59335-0.09121l-0.93879,0.81254c-0.19575,0.18741-0.08458,0.44707,0.11342,0.63664
+                                l2.8669,2.7451h-1.63258c-0.26377,0-0.47764,0.20479-0.47764,0.45733v0.93511c0,0.25254,0.21387,0.45729,0.47764,0.45729h3.52376
+                                h0.97672C17.7861,16,18,15.79524,18,15.54271v-0.93511v-3.37367C18,10.98136,17.7861,10.7766,17.52233,10.7766z"/>
+                            <path class="custom-colorable" d="M3.34554,1.84973h1.63262c0.26377,0,0.47764-0.20479,0.47764-0.45733V0.45733C5.45579,0.20476,5.24193,0,4.97815,0h-3.5238
+                                H0.47767C0.21387,0,0,0.20476,0,0.45733v0.93508v3.3737C0,5.01864,0.21387,5.2234,0.47767,5.2234h0.97668
+                                c0.26381,0,0.47767-0.20476,0.47767-0.45729V3.21142L4.79376,5.9528c0.198,0.18957,0.3976,0.27862,0.59335,0.09121l0.93879-0.81254
+                                C6.52161,5.04409,6.41048,4.7844,6.21247,4.59483L3.34554,1.84973z"/>
+                            <path class="custom-colorable" d="M17.52233,0h-0.97672h-3.52376c-0.26377,0-0.47764,0.20476-0.47764,0.45733v0.93508
+                                c0,0.25254,0.21387,0.45733,0.47764,0.45733h1.63258l-2.8669,2.7451c-0.19801,0.18957-0.30917,0.44926-0.11342,0.63663
+                                l0.93879,0.81254c0.19571,0.18741,0.39535,0.09836,0.59335-0.09121l2.86172-2.74138V4.7661
+                                c0,0.25254,0.21387,0.45729,0.47764,0.45729h0.97672C17.7861,5.2234,18,5.01864,18,4.7661v-3.3737V0.45733
+                                C18,0.20476,17.7861,0,17.52233,0z"/>
+                        </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <div id="thumbnailContainer">
+            <div class="thumbnails"></div>
+        </div>
+<div id="loupeContainer" class="show-corners"  style="display:none;">
+<div id="mapid" style="width: 100%; height: 100%;" ></div>
+<script>
+	var mymap = L.map('mapid',{
+	maxBounds:  new L.LatLngBounds([-90,-180],   [90,180]),
+		maxBoundsViscosity: 1
+	
+	});
+
+	var tileLayer = L.tileLayer('', {
+		minZoom: 1,
+		maxZoom: 6,
+		continuousWorld: false,
+		noWrap: true,
+	});
+	tileLayer.addTo(mymap);
+	
+	
+	
+</script>
+            <div id="loupeCloseButton" style="z-index:2000">
+                <svg version="1.1" id="svgIconLoupeClose" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 45 45" xml:space="preserve">
+                    <path class="shape-x custom-colorable" d="M14.77881,17.30074l5.212,5.2222l-5.0831,5.0924c-0.3476,0.3484-0.5746,0.7624-0.2308,1.1067l1.5682,1.4763
+                        c0.3436,0.3443,0.8045,0.2596,1.1521-0.0886l5.0825-5.093l5.2119,5.222c0.3536,0.3547,0.9244,0.3578,1.2741,0.0073l1.2677-1.27
+                        c0.3497-0.3507,0.3465-0.9224-0.0071-1.2768l-5.2119-5.2221l5.0828-5.0925c0.3475-0.3485,0.5429-0.8259,0.1994-1.1702
+                        l-1.6474-1.4921c-0.3438-0.3443-0.6936-0.1803-1.0411,0.1679l-5.0828,5.0929l-5.212-5.222
+                        c-0.3537-0.3546-0.9241-0.3577-1.2742-0.007l-1.2672,1.2698C14.42171,16.37464,14.42491,16.94624,14.77881,17.30074z"/>
+                </svg>
+            </div>
+        </div>
+
+		
+		<div class="flex-container">
+			<div class="flex-item">
+			<img src="images/bifurcation_1_4_30p.png" onclick="onThumbnailClick(this,'bifurcation_1_4')">
+			</div>
+			<div class="flex-item">
+			<img src="images/bifurcation_30p.png" onclick="onThumbnailClick(this,'bifurcation')">
+			</div>
+			<div class="flex-item">
+			<img src="images/winding_30p.png" onclick="onThumbnailClick(this, 'winding')">
+			</div>
+			<div class="flex-item">
+			<img src="images/recurrence_30p.png" onclick="onThumbnailClick(this,'recurrence')">
+			</div>
+		</div>
+        <script>// Wire up the fullscreen stuff if we can
+    if(Modernizr.fullscreen){
+        $("#buttonFullscreen").on(
+            "click",
+            toggleFullScreen
+        );
+    }
+	   function toggleFullScreen(e) {
+        if (!document.fullscreenElement &&    // alternative standard method
+            !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            }
+            else if (document.documentElement.msRequestFullscreen) {
+                document.documentElement.msRequestFullscreen();
+            }
+            else if (document.documentElement.mozRequestFullScreen) {
+                document.documentElement.mozRequestFullScreen();
+            }
+            else if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+            }
+        }
+        else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+            else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+            else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            }
+            else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            }
+        }
+    }
+
+</script>
+  <script src="assets/js/main.js"></script>
+    </body>
+</html>

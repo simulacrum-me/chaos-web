@@ -1,0 +1,93 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #2a2b2e;
+    font-family: sans-serif;
+   -webkit-font-smoothing: antialiased; 
+   min-width: 100%;
+   text-align: center;
+   
+}
+
+
+
+
+
+
+
+#buttonFullscreen {
+    position: absolute;
+    top: 12px;
+    right: 11px;
+    width: 20px;
+    height: 20px;
+	cursor: pointer;
+}
+
+#headerContainer {
+	
+	font-size: 6vh;
+
+	background: #920B24;
+	color:  		white;
+	font-family: 'Archivo Black', Verdana, Geneva, sans-serif;
+	padding: 1.5vh;
+	padding-top: 0vh;
+	padding-bottom: 0vh;
+	margin-bottom:3vh;
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+
+#thumbnailContainer {
+    position: relative;
+    padding: 0px;
+    width: 100%;
+   -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-size: 0;
+}
+
+
+#loupeContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+    height: 100%;
+   -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 2;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+#loupeCloseButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+	z-index: 3;
+}
+
+#svgIconLoupeClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+	z-index: 3;
+}
+
+
